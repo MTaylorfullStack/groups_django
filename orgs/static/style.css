@@ -1,0 +1,46 @@
+#wrapper{
+    margin: 0px auto;
+    width: 1200px;
+    font-family: sans-serif;
+}
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+.form{
+    display: inline-block;
+    border: 5px solid black;
+    width: 500px;
+    text-align: center;
+    vertical-align: top;
+    margin: 25px;
+}
+input{
+    display: block;
+    margin-left: 175px;
+}
+.submit{
+    margin: 15px 0px 25px 215px;
+}
+#messages{
+    background-color: red;
+    color: black;
+    padding: 15px;
+}
+#messages li{
+    display: inline-block;
+    margin: 10px;
+}
+.content{
+    display: inline-block;
+    border: 5px solid black;
+    vertical-align: top;
+    padding: 25px;
+}
+.group{
+    border: 5px solid black;
+    padding: 25px;
+    margin: 10px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groups</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src={% static "group.js" %}></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div>
+            <h1>Hi {{ request.session.name }}!</h1>
+            <a href="/logout">Logout</a>
+        </div>
+
+        <div id="groups" class="content">
+            <h2>Here are the organizations you may join:</h2>
+            {% for group in all_groups %}
+            <div id="group{{group.id}}">
+                <h3><a href="/groups/{{ group.id }}">{{ group.name }}</a></h3>
+                <p>{{ group.location }}</p>
+                <p>Members: {{ group.members.count }}</p>
+                <p>{{ group.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="content">
+            <h2>Create a new organization:</h2>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            <form id="createOrg" action="/create_org" method="post">
+                {% csrf_token %}
+                <label>Name</label>
+                <input id="org_name" type="text" name="name">
+                <label>Description</label>
+                <input type="text" name="description">
+                <label>Location</label>
+                <input type="text" name="location">
+                <input type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
